@@ -1,0 +1,27 @@
+/* Sidebar.css */
+.sidebar-custom {
+    width: 200px;
+  }
+  
+  .sidebar-custom .sidebar-items {
+    text-align: left;
+    justify-content: left;
+    transition: background-color 0.3s ease;
+  }
+  .sidebar-custom .sidebar-logo {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    margin-bottom: 16px;
+  }
+  
+  .sidebar-custom .sidebar-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  
+  
+  .sidebar-custom .sidebar-logo span {
+    margin-left: 8px;
+  }
+  

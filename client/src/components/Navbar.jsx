@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaBarsStaggered, FaBookOpen, FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom"
+import { AuthContext } from '../Authenticattion/AuthProvider';
 
 const Navbar = () => {
   const [MenuOpen, setMenuOpen] = useState(false)
   const [Sticky, setSticky] = useState(false)
+  const {user} = useContext(AuthContext)
 
   const togglemenu = () => {
     setMenuOpen(!MenuOpen)
@@ -33,17 +35,17 @@ const Navbar = () => {
     { link: 'Blog', path: '/blogs' }
   ]
   return (
-    <header className='w-full bg-transparent fixed top-0 right-0 transition-all ease-in duration-300'>
-      <nav className={`py-4 lg:px-24 px-4 ${Sticky?"sticky top-0 left-0 bg-purple-500":"bg-violet-200"}`}>
+    <header className='w-full bg-transparent fixed top-0 right-0 transition-all ease-in duration-300 z-10'>
+      <nav className={`py-4 lg:px-24 px-4 z-10 ${Sticky?"sticky top-0 left-0 bg-purple-400":"bg-violet-200"}`}>
         <div className='flex justify-between items-center text-base gap-6'>
           <Link to="/" className='text-2xl font-bold text-black-600 flex items-center gap-2 '><FaBookOpen className="inline-block" />The Book Emporium</Link>
           <ul className='md:flex space-x-9 hidden'>
             {
-              navItems.map(({ link, path }) => <Link key={path} to={path} className='block text-base text-black uppercase cursor-pointer hover:text-purple-700'>{link}</Link>)
+              navItems.map(({ link, path }) => <Link key={path} to={path} className='block text-base text-black uppercase cursor-pointer hover:bg-violet-300'>{link}</Link>)
             }
           </ul>
           <div className='space-x-9 hidden lg:flex item-center'>
-            <button><FaBarsStaggered className='w-S hover:text-purple-500' /></button>
+            <button><FaBarsStaggered className='w-S hover:bg-black transition-all ease-in duration-400' /></button>
           </div>
           {/*menu btn for mobile devices*/}
           <div className='md:hidden'>
@@ -51,9 +53,9 @@ const Navbar = () => {
                {MenuOpen ? <FaXmark className='h-5 w-5 text-black' />:<FaBarsStaggered className='h-5 w-5 text-black'/>}
             </button>
           </div>
-          <div className={`space-y-4 px-4 mt-16 py-7 bg-purple-400 ${MenuOpen?"block fixed top-0 right-0 left-0":"hidden"}`}>
+          <div className={`space-y-4 px-4 mt-16 py-7 bg-white ${MenuOpen?"block fixed top-0 right-0 left-0":"hidden"}`}>
            {
-              navItems.map(({ link, path }) => <Link key={path} to={path} className='block text-base text-white uppercase cursor-pointer hover:text-purple-700'>{link}</Link>)
+              navItems.map(({ link, path }) => <Link key={path} to={path} className='block text-base text-purple-500 uppercase cursor-pointer hover:text-purple-700'>{link}</Link>)
             }
           </div>
         </div>
