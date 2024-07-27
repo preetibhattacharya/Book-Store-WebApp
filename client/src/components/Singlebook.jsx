@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaStar, FaStarHalfAlt, FaShoppingCart } from 'react-icons/fa';
+import BookCard from './BookCard';
+import './BookCard.css'
 
 const SingleBook = () => {
   const { _id, bookTitle, authorName, imageUrl, category, bookPrice, bookDescription } = useLoaderData();

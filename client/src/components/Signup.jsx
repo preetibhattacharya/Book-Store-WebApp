@@ -7,7 +7,7 @@ import {AuthContext} from '../Authenticattion/AuthProvider';
 const Signup = () => {
 
   const {createUser,loginwithGoogle} = useContext(AuthContext)
-  const {error,setError}=useState("")
+  const [error,setError]=useState("")
 
   const location=useLocation()
   const navigate = useNavigate()
