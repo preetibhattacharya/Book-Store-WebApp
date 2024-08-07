@@ -38,7 +38,7 @@ const EditBook = () => {
             bookTitle,authorName,imageUrl,category,bookDescription
         }
         console.log(bookObj)
-        fetch(`http://localhost:3003/book/${id}`,{
+        fetch(`http://book-store-web-app-api.vercel.app/book/${id}`,{
           method:'PATCH',
           headers:{
             "content-type":"application/json",
